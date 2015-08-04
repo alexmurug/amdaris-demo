@@ -13,12 +13,12 @@ namespace Domain.Domain.Proxy
             _realBook = new Book(name, pagini, editura, autor, anultiparirii);
         }
 
-        private readonly IBook _realBook;
+        private readonly Book _realBook;
         private readonly Person _person;
 
         public void Read()
         {
-            if (_person.Aniex >= 10)
+            if (_person.Aniex >= 10 || DateTime.Now - _realBook.AnulTiparirii < TimeSpan.FromDays(600))
             {
                 _realBook.Read();
             }

@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices;
+using Domain.Domain.Decorator;
 using Proxy;
 
 namespace Domain.Domain
 {
-    public class Book : IBook
+    public class Book : IBook,IBookDecoration
     {
         private readonly string _name;
         private List<Pages> _pagini;
@@ -33,6 +35,11 @@ namespace Domain.Domain
         public void Read()
         {
             Console.WriteLine("Cartea se citeşte");
+        }
+
+        public void AddDecoration()
+        {
+            Console.WriteLine("Created simple book");
         }
     }
 }
