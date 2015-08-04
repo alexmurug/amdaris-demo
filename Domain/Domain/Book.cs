@@ -6,6 +6,7 @@ namespace Domain.Domain
 {
     public class Book
     {
+
         private readonly string _name;
         private List<Pages> _pagini;
         private readonly string _editura;
