@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using Domain.Domain;
+using Proxy;
 
-namespace Proxy
+namespace Domain.Domain.Proxy
 {
-    internal class BookProxy : IBook
+    public class BookProxy : IBook
     {
         public BookProxy(Person person, string name, List<Pages> pagini, string editura, Author autor,
             DateTime anultiparirii)
@@ -13,7 +13,7 @@ namespace Proxy
             _realBook = new Book(name, pagini, editura, autor, anultiparirii);
         }
 
-        private readonly Book _realBook;
+        private readonly IBook _realBook;
         private readonly Person _person;
 
         public void Read()
@@ -24,9 +24,8 @@ namespace Proxy
             }
             else
             {
-                throw new ArgumentOutOfRangeException("Nu ai suficienta experienta");
+                Console.WriteLine("Nu ai suficienta experienta");
             }
-            
         }
     }
 }

@@ -1,12 +1,12 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Proxy;
 
 namespace Domain.Domain
 {
-    public class Book
+    public class Book : IBook
     {
-
         private readonly string _name;
         private List<Pages> _pagini;
         private readonly string _editura;
@@ -28,6 +28,11 @@ namespace Domain.Domain
             _editura = editura;
             _autor = autor;
             AnulTiparirii = anultiparirii;
+        }
+
+        public void Read()
+        {
+            Console.WriteLine("Cartea se citeşte");
         }
     }
 }

@@ -45,6 +45,8 @@
     <Compile Include="Domain\DecanSingleton.cs" />
     <Compile Include="Domain\Pages.cs" />
     <Compile Include="Domain\Person.cs" />
+    <Compile Include="Domain\Proxy\BookProxy.cs" />
+    <Compile Include="Domain\Proxy\IBook.cs" />
     <Compile Include="Domain\Student.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

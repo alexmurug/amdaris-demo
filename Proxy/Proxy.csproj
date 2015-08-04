@@ -40,7 +40,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BookProxy.cs" />
+    <Compile Include="IBook.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Domain\Domain.csproj">
+      <Project>{78070903-CADA-4AB0-81CD-2B91563556E3}</Project>
+      <Name>Domain</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

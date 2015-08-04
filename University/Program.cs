@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using Domain.Domain;
+using Domain.Domain.Proxy;
 using Factories.Factories;
 using Infrastructure.IoC;
+using Proxy;
 
 namespace University
 {
@@ -28,13 +30,20 @@ namespace University
             var Course = FactoryCourse.CreateNewCours(prod, true, "Test Course", DateTime.Now.Date);
             Thread.Sleep(4000);
             var Course1 = FactoryCourse.CreateNewCours(prod, true, "APA", DateTime.Now.Date);
+           
+            var pagVam = new List<Pages>();
+            var pag1 = new Pages(1, "Intrducere - această carte conţine fapte reale din viaţa mea.");
+            pagVam.Add(pag1);
+            var vieru = new Author(1234567898789, "Grigore", "Vieru", 2, "Poezii, Opere");
+            var carte = new BookProxy(vieru, "Name", pagVam, "Nistru", vieru, DateTime.Today);
+            carte.Read();
             Console.ReadKey();
         }
 
         public static IList<Book> GetNewBook(int number)
         {
             var productList = new List<Book>();
-            var vieru = new Author(1234567898789, "Grigore", "Vieru", "Poezii, Opere");
+            var vieru = new Author(1234567898789, "Grigore", "Vieru", 10, "Poezii, Opere");
             var pagVam = new List<Pages>();
             var pag1 = new Pages(1, "Intrducere - această carte conţine fapte reale din viaţa mea.");
             pagVam.Add(pag1);

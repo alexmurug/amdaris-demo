@@ -4,7 +4,7 @@
     {
         public string Preferinte;
 
-        public Author(long idpn, string nume, string prenume, string preferinte) : base(idpn, nume, prenume)
+        public Author(long idpn, string nume, string prenume, int aniex, string preferinte) : base(idpn, nume, prenume,aniex)
         {
             Preferinte = preferinte;
         }
