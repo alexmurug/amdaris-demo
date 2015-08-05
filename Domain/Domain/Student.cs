@@ -8,8 +8,9 @@ namespace Domain.Domain
         private double _notaMedie;
         private List<Course> _studii;
 
-        public Student(long idpn, string nume, string prenume,int aniex, int anstudii, double notamedie, List<Course> studii)
-            :base(idpn, nume, prenume,aniex)
+        public Student(long idpn, string nume, string prenume, int aniex, int anstudii, double notamedie,
+            List<Course> studii)
+            : base(idpn, nume, prenume, aniex)
         {
             _aniStudii = anstudii;
             _notaMedie = notamedie;

@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Runtime.InteropServices.WindowsRuntime;
 
 namespace Domain.Domain
 {
@@ -23,6 +22,9 @@ namespace Domain.Domain
             _createtime = createtime;
         }
 
-        public string Nume { get {return _nume;}  }
+        public string Nume
+        {
+            get { return _nume; }
+        }
     }
 }

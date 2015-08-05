@@ -7,7 +7,6 @@ using Domain.Domain.Decorator;
 using Domain.Domain.Proxy;
 using Factories.Factories;
 using Infrastructure.IoC;
-using Proxy;
 
 namespace University
 {
@@ -26,15 +25,7 @@ namespace University
 
         private static void Main(string[] args)
         {
-            //Create 5 book with factoryMethod
-            var products = GetNewBook(5);
-            var prod = products.ToList();
-
-            //Factory-Test
-            var Course = FactoryCourse.CreateNewCours(prod, true, "Test Course", DateTime.Now.Date);
-            Thread.Sleep(4000);
-            var Course1 = FactoryCourse.CreateNewCours(prod, true, "APA", DateTime.Now.Date);
-           
+            //FactoryTest();
             var pagVam = new List<Pages>();
             var pag1 = new Pages(1, "Intrducere - această carte conţine fapte reale din viaţa mea.");
             pagVam.Add(pag1);
@@ -45,19 +36,35 @@ namespace University
             Console.ReadKey();
         }
 
+
+        private static void FactoryTest()
+        {
+            //Create 5 book with factoryMethod
+            var products = GetNewBook(5);
+            var prod = products.ToList();
+
+            //Factory-Test
+            var course = FactoryCourse.CreateNewCours(prod, true, "Test Course", DateTime.Now.Date);
+            Thread.Sleep(4000);
+            var course1 = FactoryCourse.CreateNewCours(prod, true, "APA", DateTime.Now.Date);
+        }
+
         private static void ProxyExample(List<Pages> pagVam)
         {
             var vieru = new Author(1234567898789, "Grigore", "Vieru", 1, "Poezii, Opere");
             var carte = new BookProxy(vieru, "Name", pagVam, "Nistru", vieru, new DateTime(2015, 10, 14));
             carte.Read();
         }
+
         private static void DecoratorExameple(List<Pages> pageses)
         {
-            IBookDecoration carte = new Book("Poezii pentru copii", pageses, "Nistru", new Author(1234123412, "Grigore", "Vieru", 10, "Patria,Neamul"), DateTime.Now);
+            IBookDecoration carte = new Book("Poezii pentru copii", pageses, "Nistru",
+                new Author(1234123412, "Grigore", "Vieru", 10, "Patria,Neamul"), DateTime.Now);
             IBookDecoration carte1 = new Coperta(carte);
             IBookDecoration carte3 = new Scris(carte1);
             carte3.AddDecoration();
         }
+
         public static IList<Book> GetNewBook(int number)
         {
             var productList = new List<Book>();

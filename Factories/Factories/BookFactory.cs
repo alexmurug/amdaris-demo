@@ -13,9 +13,9 @@ namespace Factories.Factories
         }
 
 
-        public Book CreateNewBook(string name, List<Pages> pagini, string editura, Author aut,DateTime anlans)
+        public Book CreateNewBook(string name, List<Pages> pagini, string editura, Author aut, DateTime anlans)
         {
-            var carte = new Book(name, pagini, editura, aut,anlans);
+            var carte = new Book(name, pagini, editura, aut, anlans);
             OnProductCreation(carte);
             return carte;
         }
