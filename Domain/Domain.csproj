@@ -44,6 +44,7 @@
     <Compile Include="Domain\Course.cs" />
     <Compile Include="Domain\DecanSingleton.cs" />
     <Compile Include="Domain\Decorator\BookDecorator.cs" />
+    <Compile Include="Domain\Observer\ISubscriber.cs" />
     <Compile Include="Domain\Pages.cs" />
     <Compile Include="Domain\Person.cs" />
     <Compile Include="Domain\Proxy\BookProxy.cs" />

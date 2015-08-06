@@ -22,18 +22,30 @@ namespace University
         private static readonly BookFactory FactoryBook;
         private static readonly CourseFactory FactoryCourse;
 
-
         private static void Main(string[] args)
         {
             //FactoryTest();
-            var pagVam = new List<Pages>();
-            var pag1 = new Pages(1, "Intrducere - această carte conţine fapte reale din viaţa mea.");
-            pagVam.Add(pag1);
+           // var pagVam = new List<Pages>();
+          //  var pag1 = new Pages(1, "Intrducere - această carte conţine fapte reale din viaţa mea.");
+          //  pagVam.Add(pag1);
 
-            ProxyExample(pagVam);
-            DecoratorExameple(pagVam);
+          //  ProxyExample(pagVam);
+          //  DecoratorExameple(pagVam);
 
+            ObserverPatternExample();
+ 
             Console.ReadKey();
+        }
+
+        private static void ObserverPatternExample()
+        {
+            
+            var c1 = new Course(new List<Book>(),true,"Apa",DateTime.Now );
+            var st1 = new  Student(2341234235234,"Murug","Alexandru",10,4,9.49,new List<Course>());
+            var dec = DecanSingleton.CreateaInstance(24352435243,"Balmus","Ion",35,10,"Doctorat",new List<Course>());
+            c1.Subscribe(st1);
+            c1.Subscribe(dec);
+            c1.Current = false;
         }
 
 

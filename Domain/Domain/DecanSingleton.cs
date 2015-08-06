@@ -1,8 +1,10 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using Domain.Domain.Observer;
 
 namespace Domain.Domain
 {
-    public sealed class DecanSingleton : Person
+    public sealed class DecanSingleton : Person,ISubscriber
     {
         private static readonly object PadLock = new object();
         private int _aniStudii;
@@ -31,6 +33,11 @@ namespace Domain.Domain
                 }
                 return Instance;
             }
+        }
+
+        public void Update(Course course)
+        {
+            Console.WriteLine("Dear {0}, review {1} course",Nume,course.Nume);
         }
     }
 }

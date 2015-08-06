@@ -1,8 +1,10 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using Domain.Domain.Observer;
 
 namespace Domain.Domain
 {
-    public class Student : Person
+    public class Student : Person,ISubscriber
     {
         private int _aniStudii;
         private double _notaMedie;
@@ -15,6 +17,14 @@ namespace Domain.Domain
             _aniStudii = anstudii;
             _notaMedie = notamedie;
             _studii = studii;
+        }
+
+        public void Update(Course course)
+        {
+            Console.WriteLine(
+                course.Current
+                    ? "Dear {0}, we have new current course '{1}'"
+                    : "Dear {0}, the course '{1}' is out of date", Nume, course.Nume);
         }
     }
 }
