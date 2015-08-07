@@ -24,7 +24,7 @@ namespace Domain.Domain.Proxy
             }
             else
             {
-                Console.WriteLine("Nu ai suficienta experienta");
+                throw new ApplicationException("You dot'n have access to read book");
             }
         }
     }

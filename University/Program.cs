@@ -25,25 +25,27 @@ namespace University
         private static void Main(string[] args)
         {
             //FactoryTest();
-           // var pagVam = new List<Pages>();
-          //  var pag1 = new Pages(1, "Intrducere - această carte conţine fapte reale din viaţa mea.");
-          //  pagVam.Add(pag1);
+            // var pagVam = new List<Pages>();
+            //  var pag1 = new Pages(1, "Intrducere - această carte conţine fapte reale din viaţa mea.");
+            //  pagVam.Add(pag1);
 
-          //  ProxyExample(pagVam);
-          //  DecoratorExameple(pagVam);
+            //  ProxyExample(pagVam);
+            //  DecoratorExameple(pagVam);
 
             ObserverPatternExample();
- 
+
             Console.ReadKey();
         }
 
         private static void ObserverPatternExample()
         {
-            
-            var c1 = new Course(new List<Book>(),true,"Apa",DateTime.Now );
-            var st1 = new  Student(2341234235234,"Murug","Alexandru",10,4,9.49,new List<Course>());
-            var dec = DecanSingleton.CreateaInstance(24352435243,"Balmus","Ion",35,10,"Doctorat",new List<Course>());
+            var c1 = new Course(new List<Book>(), true, "Apa", DateTime.Now);
+            var st1 = new Student(2341234235234, "Murug", "Alexandru", 10, 4, 9.49, new List<Course>());
+            var st2 = new Student(234431234235234, "Lica", "Ion", 10, 4, 9.49, new List<Course>());
+            var dec = DecanSingleton.CreateaInstance(24352435243, "Balmus", "Ion", 35, 10, "Doctorat",
+                new List<Course>());
             c1.Subscribe(st1);
+            c1.Subscribe(st2);
             c1.Subscribe(dec);
             c1.Current = false;
         }
@@ -92,10 +94,11 @@ namespace University
             return productList;
         }
 
-
         /*
-            var vieru = new Author(1234567898789, "Grigore", "Vieru", "Poezii, Opere");
-            var shoupensahuer = new Author(12312312312, "Arthur", "Shoupenhauer", "Filosofia");
+        private void LINQExamples()
+        {
+            var vieru = new Author(1234567898789, "Grigore", "Vieru",1, "Poezii, Opere");
+            var shoupensahuer = new Author(12312312312, "Arthur", "Shoupenhauer",10, "Filosofia");
 
 
             var p = new List<Book>();
@@ -104,12 +107,13 @@ namespace University
             var pag1 = new Pages(1, "Intrducere - această carte conţine fapte reale din viaţa mea.");
             pagVam.Add(pag1);
 
-            var c = new Book(pagVam, "Test", vieru);
+            var c = new Book("Testin",pagVam, "Test", vieru,DateTime.Now);
             p.Add(c);
 
             try
             {
-                var viataAmorulMoartea = BookFactory.CreateNewBook(pagVam, "Nistru", shoupensahuer);
+                var ani = DateTime.Now;
+                var viataAmorulMoartea = BookFactory.CreateNewBook("Nume",pagVam, "Nistru", shoupensahuer,ani);
             }
             catch (SystemException e)
             {
@@ -149,8 +153,7 @@ namespace University
                 group cursu by cursu.Current
                 into cursbyCurrent
                 select new {cursbyCurrent.Key, Nume = cursbyCurrent};
-
-
-            */
+        }
+        */
     }
 }
